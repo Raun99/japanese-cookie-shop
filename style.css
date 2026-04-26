@@ -1,80 +1,98 @@
 :root {
-    --bg-color: #FDF8F2;
-    --wood-brown: #8B5E3C;
-    --matcha-green: #6B8E23;
-    --text-dark: #3E362E;
-    --card-bg: #FFFFFF;
+    --primary-dark: #2D2424; /* Deep Cocoa */
+    --accent-orange: #E07A5F; /* Biscoff vibe */
+    --soft-cream: #F4F1DE;
+    --white: #FFFFFF;
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-dark);
-    font-family: 'Poppins', sans-serif;
+    background-color: var(--soft-cream);
+    color: var(--primary-dark);
+    font-family: 'Lato', sans-serif;
     margin: 0;
-    line-height: 1.6;
 }
 
 header {
-    padding: 60px 20px;
+    background-color: var(--primary-dark);
+    color: var(--white);
+    padding: 50px 20px;
     text-align: center;
-    background: url('https://www.transparenttextures.com/patterns/paper-fibers.png'); /* Subtle paper texture */
+    text-transform: uppercase;
 }
 
-h1, h2, h3 {
-    font-family: 'Playfair Display', serif;
-    color: var(--wood-brown);
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    margin: 0;
+    letter-spacing: 4px;
 }
 
-header h1 { font-size: 3rem; margin: 0; }
-header p { font-style: italic; color: var(--matcha-green); letter-spacing: 2px; }
+header p {
+    font-size: 0.9rem;
+    letter-spacing: 5px;
+    margin-top: 10px;
+    opacity: 0.8;
+}
 
-.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
-
-.intro { text-align: center; margin-bottom: 50px; }
+.container { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
 
 .shop-layout {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 40px;
+    grid-template-columns: 1fr 350px;
+    gap: 30px;
 }
 
 .cookie-card {
-    background: var(--card-bg);
-    padding: 25px;
+    background: var(--white);
+    padding: 30px;
     margin-bottom: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(139, 94, 60, 0.05);
-    border-left: 5px solid var(--matcha-green);
+    border-radius: 4px; /* Sharp, modern edges */
+    box-shadow: 10px 10px 0px var(--primary-dark); /* Bold retro shadow */
+    border: 2px solid var(--primary-dark);
 }
 
-.price { display: block; font-weight: bold; margin: 10px 0; color: var(--wood-brown); }
+.cookie-card h3 {
+    margin-top: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-dark);
+}
 
 button {
-    background-color: var(--matcha-green);
-    color: white;
+    background-color: var(--primary-dark);
+    color: var(--white);
     border: none;
-    padding: 10px 20px;
-    border-radius: 25px;
+    padding: 12px 25px;
+    font-weight: bold;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.2s;
 }
 
-button:hover { background-color: var(--wood-brown); }
+button:hover {
+    background-color: var(--accent-orange);
+}
 
 .cart-sidebar {
-    background: #FFF;
-    padding: 20px;
-    border-radius: 12px;
+    background: var(--white);
+    padding: 25px;
+    border: 2px solid var(--primary-dark);
     height: fit-content;
-    border: 1px solid #EEE;
     position: sticky;
     top: 20px;
 }
 
-.checkout-btn {
-    width: 100%;
-    margin-top: 20px;
-    background-color: #25D366; /* WhatsApp Green */
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 20px 0;
+    border-top: 2px solid var(--primary-dark);
+    padding-top: 10px;
 }
 
-.empty-msg { font-size: 0.9rem; color: #999; }
+.checkout-btn {
+    width: 100%;
+    background-color: #25D366; /* WhatsApp Green */
+    font-size: 1rem;
+}
