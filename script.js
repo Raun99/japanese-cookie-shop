@@ -4,46 +4,40 @@ let total = 0;
 function addToCart(name, price) {
     cart.push({ name, price });
     total += price;
-    updateCartUI();
+    updateUI();
 }
 
-function updateCartUI() {
-    const cartItemsDiv = document.getElementById('cart-items');
-    const totalPriceSpan = document.getElementById('total-price');
+function updateUI() {
+    const list = document.getElementById('cart-list');
+    const totalEl = document.getElementById('total-price');
     
     if (cart.length === 0) {
-        cartItemsDiv.innerHTML = '<p class="empty-msg">Select a cookie to start...</p>';
+        list.innerHTML = '<p class="hint">Your treats will appear here...</p>';
     } else {
-        // This creates the list of items in your basket
-        cartItemsDiv.innerHTML = cart.map(item => `
-            <div style="display:flex; justify-content:space-between; font-size:0.9rem; margin-bottom:8px; border-bottom:1px solid #eee; padding-bottom:5px;">
+        list.innerHTML = cart.map(item => `
+            <div style="display:flex; justify-content:space-between; margin-bottom:10px; font-size:0.95rem;">
                 <span>${item.name}</span>
                 <span>₹${item.price}</span>
             </div>
         `).join('');
     }
-    
-    totalPriceSpan.innerText = total;
+    totalEl.innerText = total;
 }
 
 function sendWhatsApp() {
     if (cart.length === 0) {
-        alert("Your basket is empty! Add some cookies first.");
+        alert("Select some cookies first!");
         return;
     }
 
-    // --- CONFIGURATION ---
-    let phoneNumber = "9980149361"; // REPLACE WITH YOUR NUMBER (start with 91)
-    // ---------------------
-
-    let orderText = "New Order from Crumbs %26 Co! 🍪%0A%0A";
+    const myNumber = "9980149361"; // SET YOUR NUMBER HERE
+    let message = "Hi! I want to order from CRAVE.%0A%0A";
     
-    cart.forEach((item, index) => {
-        orderText += `${index + 1}. ${item.name} - ₹${item.price}%0A`;
+    cart.forEach(item => {
+        message += `• ${item.name} (₹${item.price})%0A`;
     });
     
-    orderText += `%0A*Total Amount: ₹${total}*`;
+    message += `%0A*Total: ₹${total}*`;
     
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${orderText}`;
-    window.open(whatsappUrl, '_blank');
+    window.open(`https://wa.me/${myNumber}?text=${message}`, '_blank');
 }

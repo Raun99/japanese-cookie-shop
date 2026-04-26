@@ -3,66 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crumbs & Co. | Gourmet Cookies</title>
+    <title>CRAVE. | Freshly Baked Joy</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-    <div class="logo">
-        <h1>CRUMBS & CO.</h1>
-        <p>FRESHLY BAKED • GOURMET • DELIVERED</p>
-    </div>
-</header>
+<div class="hero">
+    <h1>CRAVE.</h1>
+    <p>Warm cookies, baked with love, delivered to your door.</p>
+</div>
 
-<main class="container">
-    <div class="shop-layout">
+<div class="container">
+    <div class="main-grid">
         <section class="menu">
-            <div class="cookie-card" data-flavor="classic">
-                <h3>The Classic Choco Chip</h3>
-                <p>Golden brown, chewy, and loaded with premium semi-sweet chocolate chips.</p>
-                <span class="price">₹120</span>
-                <button onclick="addToCart('Classic Choco Chip', 120)">Add to Basket</button>
+            <h2 class="section-title">Today's Batch</h2>
+            
+            <div class="cookie-item">
+                <div class="cookie-info">
+                    <h3>Classic Choco Chip</h3>
+                    <p>Our signature recipe with gooey centers and crispy edges.</p>
+                </div>
+                <div class="cookie-action">
+                    <span>₹120</span>
+                    <button onclick="addToCart('Classic Choco Chip', 120)">Add</button>
+                </div>
             </div>
 
-            <div class="cookie-card" data-flavor="triple">
-                <h3>Triple Chocolate Threat</h3>
-                <p>A dark cocoa base with white, milk, and dark chocolate chunks.</p>
-                <span class="price">₹150</span>
-                <button onclick="addToCart('Triple Chocolate', 150)">Add to Basket</button>
+            <div class="cookie-item">
+                <div class="cookie-info">
+                    <h3>Triple Chocolate</h3>
+                    <p>A rich, cocoa-infused dough packed with three types of chips.</p>
+                </div>
+                <div class="cookie-action">
+                    <span>₹150</span>
+                    <button onclick="addToCart('Triple Chocolate', 150)">Add</button>
+                </div>
             </div>
 
-            <div class="cookie-card" data-flavor="velvet">
-                <h3>Red Velvet Dream</h3>
-                <p>Vibrant cocoa-infused dough with a creamy white chocolate drizzle.</p>
-                <span class="price">₹140</span>
-                <button onclick="addToCart('Red Velvet', 140)">Add to Basket</button>
+            <div class="cookie-item">
+                <div class="cookie-info">
+                    <h3>Red Velvet</h3>
+                    <p>Deep crimson cocoa cake cookie with white chocolate chunks.</p>
+                </div>
+                <div class="cookie-action">
+                    <span>₹140</span>
+                    <button onclick="addToCart('Red Velvet', 140)">Add</button>
+                </div>
             </div>
 
-            <div class="cookie-card" data-flavor="biscoff">
-                <h3>Lotus Biscoff Blast</h3>
-                <p>Stuffed with Lotus Biscoff spread and topped with crunchy biscuit bits.</p>
-                <span class="price">₹160</span>
-                <button onclick="addToCart('Biscoff Blast', 160)">Add to Basket</button>
+            <div class="cookie-item">
+                <div class="cookie-info">
+                    <h3>Biscoff Blast</h3>
+                    <p>Loaded with Lotus Biscoff spread and cookie crumbles.</p>
+                </div>
+                <div class="cookie-action">
+                    <span>₹160</span>
+                    <button onclick="addToCart('Biscoff Blast', 160)">Add</button>
+                </div>
             </div>
         </section>
 
-        <aside class="cart-sidebar">
-            <h3>Your Order</h3>
-            <div id="cart-items">
-                <p class="empty-msg">Select a cookie to start...</p>
+        <aside class="cart-box">
+            <h3>Your Basket</h3>
+            <div id="cart-list">
+                <p class="hint">Your treats will appear here...</p>
             </div>
-            <div class="cart-footer">
-                <div class="total-row">
+            <div class="cart-summary">
+                <div class="total-line">
                     <span>Total</span>
                     <span>₹<span id="total-price">0</span></span>
                 </div>
-                <button class="checkout-btn" onclick="sendWhatsApp()">Confirm Order via WhatsApp</button>
+                <button class="order-btn" onclick="sendWhatsApp()">Send Order via WhatsApp</button>
             </div>
         </aside>
     </div>
-</main>
+</div>
 
 <script src="script.js"></script>
 </body>

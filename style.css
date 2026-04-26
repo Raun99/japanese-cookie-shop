@@ -1,98 +1,115 @@
 :root {
-    --primary-dark: #2D2424; /* Deep Cocoa */
-    --accent-orange: #E07A5F; /* Biscoff vibe */
-    --soft-cream: #F4F1DE;
-    --white: #FFFFFF;
+    --brand-brown: #5D4037;
+    --soft-yellow: #FFF9F0;
+    --warm-white: #FFFFFF;
+    --accent-peach: #FFDAB9;
+    --text-main: #4E342E;
 }
 
 body {
-    background-color: var(--soft-cream);
-    color: var(--primary-dark);
-    font-family: 'Lato', sans-serif;
+    background-color: var(--soft-yellow);
+    color: var(--text-main);
+    font-family: 'Quicksand', sans-serif;
     margin: 0;
 }
 
-header {
-    background-color: var(--primary-dark);
-    color: var(--white);
-    padding: 50px 20px;
+.hero {
+    background-color: var(--brand-brown);
+    color: var(--warm-white);
+    padding: 80px 20px;
     text-align: center;
-    text-transform: uppercase;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
 }
 
-header h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 3.5rem;
+.hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 5rem;
     margin: 0;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
 }
 
-header p {
-    font-size: 0.9rem;
-    letter-spacing: 5px;
-    margin-top: 10px;
-    opacity: 0.8;
+.hero p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    opacity: 0.9;
 }
 
-.container { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
+.container {
+    max-width: 1000px;
+    margin: -40px auto 50px;
+    padding: 0 20px;
+}
 
-.shop-layout {
+.main-grid {
     display: grid;
-    grid-template-columns: 1fr 350px;
+    grid-template-columns: 1fr 320px;
     gap: 30px;
 }
 
-.cookie-card {
-    background: var(--white);
-    padding: 30px;
+.section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
     margin-bottom: 20px;
-    border-radius: 4px; /* Sharp, modern edges */
-    box-shadow: 10px 10px 0px var(--primary-dark); /* Bold retro shadow */
-    border: 2px solid var(--primary-dark);
 }
 
-.cookie-card h3 {
-    margin-top: 0;
-    font-family: 'Montserrat', sans-serif;
-    color: var(--primary-dark);
+.cookie-item {
+    background: var(--warm-white);
+    padding: 25px;
+    margin-bottom: 15px;
+    border-radius: 24px; /* Smooth rounded corners */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(93, 64, 55, 0.05);
+    transition: transform 0.2s ease;
 }
+
+.cookie-item:hover {
+    transform: scale(1.02);
+}
+
+.cookie-info h3 { margin: 0; color: var(--brand-brown); }
+.cookie-info p { margin: 5px 0 0; font-size: 0.9rem; color: #7D6B67; }
+
+.cookie-action { text-align: right; }
+.cookie-action span { display: block; font-weight: bold; margin-bottom: 8px; font-size: 1.1rem; }
 
 button {
-    background-color: var(--primary-dark);
-    color: var(--white);
+    background-color: var(--brand-brown);
+    color: white;
     border: none;
-    padding: 12px 25px;
-    font-weight: bold;
-    text-transform: uppercase;
+    padding: 8px 20px;
+    border-radius: 15px;
     cursor: pointer;
-    transition: 0.2s;
+    font-weight: 600;
 }
 
-button:hover {
-    background-color: var(--accent-orange);
-}
-
-.cart-sidebar {
-    background: var(--white);
+.cart-box {
+    background: var(--warm-white);
     padding: 25px;
-    border: 2px solid var(--primary-dark);
+    border-radius: 30px;
     height: fit-content;
+    box-shadow: 0 15px 40px rgba(93, 64, 55, 0.1);
     position: sticky;
     top: 20px;
 }
 
-.total-row {
+.total-line {
     display: flex;
     justify-content: space-between;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: bold;
     margin: 20px 0;
-    border-top: 2px solid var(--primary-dark);
-    padding-top: 10px;
+    color: var(--brand-brown);
 }
 
-.checkout-btn {
+.order-btn {
     width: 100%;
     background-color: #25D366; /* WhatsApp Green */
+    padding: 15px;
+    border-radius: 18px;
     font-size: 1rem;
 }
+
+.hint { color: #BBB; font-style: italic; }
