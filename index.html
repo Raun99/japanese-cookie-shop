@@ -3,54 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matcha & Crumbs | Artisan Cookies</title>
+    <title>Matcha & Crumbs | Artisanal Bakery</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <h1>Matcha & Cookies (抹茶とパン粉)</h1>
-            <p>Japanese-Inspired Artisan Cookies</p>
-        </div>
-    </header>
 
-    <main>
-        <section class="menu-section">
-            <h2>Our Classic Selection</h2>
-            <div class="cookie-grid">
-                
-                <div class="cookie-card">
-                    <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=400&q=80" alt="Classic Choco Chip">
-                    <h3>Classic Choco Chip</h3>
-                    <p class="price">$3.00</p>
-                    <button class="order-btn" onclick="addToCart('Classic Choco Chip')">Add to Cart</button>
-                </div>
+<header>
+    <div class="logo">
+        <h1>Matcha & Crumbs</h1>
+        <p>まっちゃ & パン粉</p>
+    </div>
+</header>
 
-                <div class="cookie-card">
-                    <img src="https://images.unsplash.com/photo-1605666807755-14fdbfa393eb?auto=format&fit=crop&w=400&q=80" alt="Triple Chocolate">
-                    <h3>Triple Chocolate</h3>
-                    <p class="price">$3.50</p>
-                    <button class="order-btn" onclick="addToCart('Triple Chocolate')">Add to Cart</button>
-                </div>
+<main class="container">
+    <section class="intro">
+        <h2>Handcrafted with Heart</h2>
+        <p>Experience the warmth of our small-batch, Japanese-inspired cookies.</p>
+    </section>
 
-                <div class="cookie-card">
-                    <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=400&q=80" alt="Biscoff">
-                    <h3>Biscoff</h3>
-                    <p class="price">$3.50</p>
-                    <button class="order-btn" onclick="addToCart('Biscoff')">Add to Cart</button>
-                </div>
+    <div class="shop-layout">
+        <section class="menu">
+            <div class="cookie-card">
+                <h3>Matcha White Choco (抹茶)</h3>
+                <p>Premium Uji matcha paired with creamy white chocolate chunks.</p>
+                <span class="price">₹150</span>
+                <button onclick="addToCart('Matcha White Choco', 150)">Add to Cart</button>
+            </div>
 
-                <div class="cookie-card">
-                    <img src="https://images.unsplash.com/photo-1620986518118-2e00e84b7274?auto=format&fit=crop&w=400&q=80" alt="Red Velvet">
-                    <h3>Red Velvet</h3>
-                    <p class="price">$4.00</p>
-                    <button class="order-btn" onclick="addToCart('Red Velvet')">Add to Cart</button>
-                </div>
+            <div class="cookie-card">
+                <h3>Black Sesame Mochi (黒ごま)</h3>
+                <p>Nutty roasted black sesame with a hidden chewy mochi center.</p>
+                <span class="price">₹180</span>
+                <button onclick="addToCart('Black Sesame Mochi', 180)">Add to Cart</button>
+            </div>
 
+            <div class="cookie-card">
+                <h3>Hojicha Dark Choco (ほうじ茶)</h3>
+                <p>Earthiness of roasted green tea with 70% dark chocolate.</p>
+                <span class="price">₹160</span>
+                <button onclick="addToCart('Hojicha Dark Choco', 160)">Add to Cart</button>
             </div>
         </section>
-    </main>
 
-    <script src="script.js"></script>
+        <aside class="cart-sidebar">
+            <h3>Your Basket</h3>
+            <div id="cart-items">
+                <p class="empty-msg">Your basket is empty...</p>
+            </div>
+            <hr>
+            <div class="cart-total">
+                <strong>Total: ₹<span id="total-price">0</span></strong>
+            </div>
+            <button class="checkout-btn" onclick="sendWhatsApp()">Order via WhatsApp</button>
+        </aside>
+    </div>
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>
