@@ -14,7 +14,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Navigation */
 .navbar {
     background: var(--rich-brown);
     padding: 15px 20px;
@@ -36,7 +35,6 @@ body {
     font-family: 'DM Serif Display', serif; 
     margin: 0; 
     font-size: 2rem; 
-    letter-spacing: 1px;
 }
 
 #searchInput {
@@ -53,14 +51,11 @@ body {
     cursor: pointer; 
     color: var(--gold-accent); 
     font-weight: 700; 
-    font-size: 0.9rem;
-    letter-spacing: 1px;
 }
 
-/* Layout */
 .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
 .page-header h2 { font-family: 'DM Serif Display', serif; font-size: 3.5rem; margin: 0; }
-.page-header p { opacity: 0.7; font-size: 1.1rem; margin-top: 10px; }
+.page-header p { opacity: 0.7; font-size: 1.1rem; }
 
 .cookie-grid {
     display: grid;
@@ -69,16 +64,15 @@ body {
     margin-top: 50px;
 }
 
-/* Cards */
 .cookie-card {
     background: var(--rich-brown);
     border-radius: 20px;
     overflow: hidden;
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.3s ease;
     border: 1px solid rgba(255,255,255,0.03);
 }
 
-.cookie-card:hover { transform: translateY(-12px); }
+.cookie-card:hover { transform: translateY(-10px); }
 
 .cookie-img { 
     height: 250px; 
@@ -101,12 +95,8 @@ button {
     border-radius: 12px;
     font-weight: 700;
     cursor: pointer;
-    transition: 0.2s;
 }
 
-button:hover { background: var(--white); }
-
-/* Slide Cart */
 .side-cart {
     position: fixed;
     right: -400px;
@@ -123,13 +113,9 @@ button:hover { background: var(--white); }
 }
 
 .side-cart.active { right: 0; }
-.cart-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 20px; }
 .close-cart { font-size: 2.5rem; cursor: pointer; color: var(--gold-accent); }
-
 #cart-list { flex-grow: 1; margin-top: 20px; overflow-y: auto; }
-
-.cart-footer { border-top: 1px solid #333; padding-top: 20px; }
-.total-line { display: flex; justify-content: space-between; font-size: 1.5rem; font-weight: 700; color: var(--gold-accent); }
+.total-line { display: flex; justify-content: space-between; font-size: 1.5rem; font-weight: 700; color: var(--gold-accent); border-top: 1px solid #333; padding-top: 20px; }
 
 .order-btn { 
     width: 100%; 
@@ -138,5 +124,4 @@ button:hover { background: var(--white); }
     margin-top: 20px; 
     padding: 18px; 
     border-radius: 15px;
-    font-size: 1.1rem;
 }

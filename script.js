@@ -9,7 +9,6 @@ function addToCart(name, price) {
     cart.push({ name, price });
     total += price;
     updateUI();
-    // Auto-open cart when adding first item
     if(cart.length === 1) toggleCart();
 }
 
@@ -23,7 +22,7 @@ function updateUI() {
     } else {
         list.innerHTML = cart.map(item => `
             <div style="display:flex; justify-content:space-between; margin-bottom:15px; border-bottom:1px solid #222; padding-bottom:10px;">
-                <span style="font-weight:500;">${item.name}</span>
+                <span>${item.name}</span>
                 <span style="color:#C5A059;">₹${item.price}</span>
             </div>
         `).join('');
@@ -33,26 +32,17 @@ function updateUI() {
 function filterCookies() {
     let input = document.getElementById('searchInput').value.toLowerCase();
     let cards = document.getElementsByClassName('cookie-card');
-    
     for (let card of cards) {
         let name = card.getAttribute('data-name');
-        if (name.includes(input)) {
-            card.style.display = "block";
-        } else {
-            card.style.display = "none";
-        }
+        card.style.display = name.includes(input) ? "block" : "none";
     }
 }
 
 function sendWhatsApp() {
-    if (cart.length === 0) return alert("Your basket is empty!");
-    
-    // REPLACE WITH YOUR PHONE NUMBER
-    const myNumber = "9980149361"; 
-    
-    let msg = "Hello CRAVE! I'd like to order:%0A%0A";
-    cart.forEach((i, index) => msg += `${index+1}. ${i.name} (₹${i.price})%0A`);
-    msg += `%0A*Total Amount: ₹${total}*`;
-    
+    if (cart.length === 0) return alert("Basket is empty!");
+    const myNumber = "9980149361"; // SET YOUR PHONE NUMBER
+    let msg = "CRAVE Order:%0A%0A";
+    cart.forEach((i, idx) => msg += `${idx+1}. ${i.name}%0A`);
+    msg += `%0A*Total: ₹${total}*`;
     window.open(`https://wa.me/${myNumber}?text=${msg}`, '_blank');
 }
