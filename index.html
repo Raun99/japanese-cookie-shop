@@ -3,80 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRAVE. | Freshly Baked Joy</title>
+    <title>CRAVE. | Premium Cookies</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div class="hero">
-    <h1>CRAVE.</h1>
-    <p>Warm cookies, baked with love, delivered to your door.</p>
+<nav class="navbar">
+    <div class="nav-content">
+        <h1 class="logo">CRAVE.</h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search flavors..." onkeyup="filterCookies()">
+        </div>
+        <div class="cart-trigger" onclick="toggleCart()">
+            Basket (<span id="cart-count">0</span>)
+        </div>
+    </div>
+</nav>
+
+<div id="sideCart" class="side-cart">
+    <div class="cart-header">
+        <h3>Your Order</h3>
+        <span class="close-cart" onclick="toggleCart()">&times;</span>
+    </div>
+    <div id="cart-list"></div>
+    <div class="cart-footer">
+        <div class="total-line">Total: ₹<span id="total-price">0</span></div>
+        <button class="order-btn" onclick="sendWhatsApp()">Checkout to WhatsApp</button>
+    </div>
 </div>
 
 <div class="container">
-    <div class="main-grid">
-        <section class="menu">
-            <h2 class="section-title">Today's Batch</h2>
-            
-            <div class="cookie-item">
-                <div class="cookie-info">
-                    <h3>Classic Choco Chip</h3>
-                    <p>Our signature recipe with gooey centers and crispy edges.</p>
-                </div>
-                <div class="cookie-action">
+    <header class="page-header">
+        <h2>Freshly baked, remarkably dark.</h2>
+        <p>Gourmet treats for the late-night cravings.</p>
+    </header>
+
+    <div class="cookie-grid" id="cookieGrid">
+        <div class="cookie-card" data-name="classic choco chip">
+            <div class="cookie-img" style="background-image: url('https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=400&q=80')"></div>
+            <div class="card-body">
+                <h3>Classic Choco Chip</h3>
+                <p>Signature recipe with dark chocolate chunks.</p>
+                <div class="card-footer">
                     <span>₹120</span>
-                    <button onclick="addToCart('Classic Choco Chip', 120)">Add</button>
+                    <button onclick="addToCart('Classic Choco Chip', 120)">Add +</button>
                 </div>
             </div>
+        </div>
 
-            <div class="cookie-item">
-                <div class="cookie-info">
-                    <h3>Triple Chocolate</h3>
-                    <p>A rich, cocoa-infused dough packed with three types of chips.</p>
-                </div>
-                <div class="cookie-action">
+        <div class="cookie-card" data-name="triple chocolate">
+            <div class="cookie-img" style="background-image: url('https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=400&q=80')"></div>
+            <div class="card-body">
+                <h3>Triple Chocolate</h3>
+                <p>Cocoa dough with milk, white, and dark chips.</p>
+                <div class="card-footer">
                     <span>₹150</span>
-                    <button onclick="addToCart('Triple Chocolate', 150)">Add</button>
+                    <button onclick="addToCart('Triple Chocolate', 150)">Add +</button>
                 </div>
             </div>
+        </div>
 
-            <div class="cookie-item">
-                <div class="cookie-info">
-                    <h3>Red Velvet</h3>
-                    <p>Deep crimson cocoa cake cookie with white chocolate chunks.</p>
-                </div>
-                <div class="cookie-action">
+        <div class="cookie-card" data-name="red velvet">
+            <div class="cookie-img" style="background-image: url('https://images.unsplash.com/photo-1618923850107-d1a234d7a73a?auto=format&fit=crop&w=400&q=80')"></div>
+            <div class="card-body">
+                <h3>Red Velvet</h3>
+                <p>Crimson cocoa cake with cream cheese chips.</p>
+                <div class="card-footer">
                     <span>₹140</span>
-                    <button onclick="addToCart('Red Velvet', 140)">Add</button>
+                    <button onclick="addToCart('Red Velvet', 140)">Add +</button>
                 </div>
             </div>
+        </div>
 
-            <div class="cookie-item">
-                <div class="cookie-info">
-                    <h3>Biscoff Blast</h3>
-                    <p>Loaded with Lotus Biscoff spread and cookie crumbles.</p>
-                </div>
-                <div class="cookie-action">
+        <div class="cookie-card" data-name="biscoff blast">
+            <div class="cookie-img" style="background-image: url('https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=400&q=80')"></div>
+            <div class="card-body">
+                <h3>Biscoff Blast</h3>
+                <p>Lotus spread core with crushed biscuit pieces.</p>
+                <div class="card-footer">
                     <span>₹160</span>
-                    <button onclick="addToCart('Biscoff Blast', 160)">Add</button>
+                    <button onclick="addToCart('Biscoff Blast', 160)">Add +</button>
                 </div>
             </div>
-        </section>
-
-        <aside class="cart-box">
-            <h3>Your Basket</h3>
-            <div id="cart-list">
-                <p class="hint">Your treats will appear here...</p>
-            </div>
-            <div class="cart-summary">
-                <div class="total-line">
-                    <span>Total</span>
-                    <span>₹<span id="total-price">0</span></span>
-                </div>
-                <button class="order-btn" onclick="sendWhatsApp()">Send Order via WhatsApp</button>
-            </div>
-        </aside>
+        </div>
     </div>
 </div>
 

@@ -1,6 +1,10 @@
 let cart = [];
 let total = 0;
 
+function toggleCart() {
+    document.getElementById('sideCart').classList.toggle('active');
+}
+
 function addToCart(name, price) {
     cart.push({ name, price });
     total += price;
@@ -9,35 +13,32 @@ function addToCart(name, price) {
 
 function updateUI() {
     const list = document.getElementById('cart-list');
-    const totalEl = document.getElementById('total-price');
+    document.getElementById('total-price').innerText = total;
+    document.getElementById('cart-count').innerText = cart.length;
     
-    if (cart.length === 0) {
-        list.innerHTML = '<p class="hint">Your treats will appear here...</p>';
-    } else {
-        list.innerHTML = cart.map(item => `
-            <div style="display:flex; justify-content:space-between; margin-bottom:10px; font-size:0.95rem;">
-                <span>${item.name}</span>
-                <span>₹${item.price}</span>
-            </div>
-        `).join('');
+    list.innerHTML = cart.map(item => `
+        <div style="display:flex; justify-content:space-between; margin-bottom:10px; border-bottom:1px solid #333; padding-bottom:5px;">
+            <span>${item.name}</span>
+            <span>₹${item.price}</span>
+        </div>
+    `).join('');
+}
+
+function filterCookies() {
+    let input = document.getElementById('searchInput').value.toLowerCase();
+    let cards = document.getElementsByClassName('cookie-card');
+    
+    for (let card of cards) {
+        let name = card.getAttribute('data-name');
+        card.style.display = name.includes(input) ? "block" : "none";
     }
-    totalEl.innerText = total;
 }
 
 function sendWhatsApp() {
-    if (cart.length === 0) {
-        alert("Select some cookies first!");
-        return;
-    }
-
-    const myNumber = "9980149361"; // SET YOUR NUMBER HERE
-    let message = "Hi! I want to order from CRAVE.%0A%0A";
-    
-    cart.forEach(item => {
-        message += `• ${item.name} (₹${item.price})%0A`;
-    });
-    
-    message += `%0A*Total: ₹${total}*`;
-    
-    window.open(`https://wa.me/${myNumber}?text=${message}`, '_blank');
+    if (cart.length === 0) return alert("Basket is empty!");
+    const myNumber = "9980149361"; // SET YOUR NUMBER
+    let msg = "CRAVE Order:%0A";
+    cart.forEach(i => msg += `• ${i.name}%0A`);
+    msg += `%0A*Total: ₹${total}*`;
+    window.open(`https://wa.me/${myNumber}?text=${msg}`, '_blank');
 }
